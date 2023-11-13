@@ -1,0 +1,47 @@
+{
+    "name": "Tamer",
+    "description": "<center>A loadout that lets the player build their own bugs to fight off the horde</center><br><li>Air tech tree replaced by hives, still use air fabs to progress in it<br><li>Titan class runner added to the advanced hive<br><li>Metal extractors produce slightly less<br><li>bugs are comparatively cheaper than normal units",
+    "locked": [
+        "/pa/units/air/transport/transport.json",
+        "/pa/units/air/solar_drone/solar_drone.json"
+
+    ],
+    "replace": [
+        [
+            "/pa/units/air/air_factory/air_factory.json",
+            "/pa/units/air/air_factory_adv/air_factory_adv.json",
+            "/pa/units/air/titan_air/titan_air.json",
+
+            "/pa/units/air/fighter/fighter.json",
+            "/pa/units/air/bomber/bomber.json",
+            "/pa/units/air/air_scout/air_scout.json",
+
+            "/pa/units/air/fighter_adv/fighter_adv.json",
+            "/pa/units/air/gunship/gunship.json",
+            "/pa/units/air/strafer/strafer.json",
+            
+            "/pa/units/air/bomber_adv/bomber_adv.json",
+            "/pa/units/air/support_platform/support_platform.json",
+            "/pa/units/air/bomber_heavy/bomber_heavy.json"
+      
+        ],
+        [
+            "/pa/units/loadouts/tamer/hives/basic_hive.json",
+            "/pa/units/loadouts/tamer/hives/medium_hive.json",
+            "/pa/units/loadouts/tamer/hives/advanced_hive.json",
+            
+            "/pa/units/loadouts/tamer/bugs/bug_grunt.json",
+            "/pa/units/loadouts/tamer/bugs/bug_scout.json",
+            "/pa/units/loadouts/tamer/bugs/bug_runner.json",
+
+            "/pa/units/loadouts/tamer/bugs/bug_scorcher.json",
+            "/pa/units/loadouts/tamer/bugs/bug_warrior.json",
+            "/pa/units/loadouts/tamer/bugs/bug_alpha_runner.json",
+
+            "/pa/units/loadouts/tamer/bugs/bug_alpha_warrior.json",
+            "/pa/units/loadouts/tamer/bugs/bug_basilisk.json",
+            "/pa/units/loadouts/tamer/bugs/bug_titan_runner.json"
+            
+        ]
+    ]
+}

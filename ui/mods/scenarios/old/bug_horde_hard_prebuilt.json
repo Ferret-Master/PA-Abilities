@@ -1,0 +1,331 @@
+{
+    "name": "Bug Mode",
+    "description": "BUG",
+    "scenarioID": 2,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "aiComRequired":true,
+    "aiCommander":"/pa/units/commanders/scenario_ai_invincible_com/scenario_ai_invincible_com.json",
+    "objectives": [
+        {
+            "name": "spawn_waves",
+            "id":1,
+            "visible":false,
+            "description": "Spawns waves of bugs periodically.",
+            "playerType":"ai",
+            "spawnEffect":"pingRed",
+            "spawnEffectDuration":3,
+            "effectContext":"groups",
+            "group":true,
+            "show_area":false,
+            "type":"spawn_waves",
+            "accelerate_by_dont_spawn_type":true,
+            "accelerate_value":0.1,
+            "planet":0,
+            "dont_spawn_near_unit_type":"UNITTYPE_Shield",
+            "spawn_close_radius":500,
+            "dont_spawn_radius":250,
+            "spawn_near_unit_types":[],
+            "spawn_near_radius":300,
+            "lastCalled":0,
+            "timesCalled":-60,
+            "progress":-16,
+            "maxDifficulty":100000,
+            "scalingNumber":0.2,
+            "scalingRatio":0.2,
+            "waveInterval":60,
+      
+            "unitValues":[
+
+                
+            {
+                
+                "waveChance":0.6,
+
+                "spitters":{
+                    "value":1,
+                    "units":[
+                        ["/pa/units/land/bug_scout/bug_scout.json",2,80],
+                        ["/pa/units/land/bug_scorcher/bug_scorcher.json",40,400],
+                        ["/pa/units/land/bug_basilisk/bug_basilisk.json",300,300000]
+                    
+                    ]
+                },
+                "melee":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/land/bug_grunt/bug_grunt.json",2,50],
+                         ["/pa/units/land/bug_grunt_big/bug_grunt_big.json",20,400],
+                         ["/pa/units/land/bug_warrior/bug_warrior.json",50,500]
+                         ]
+
+                },
+                "warrior":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/land/bug_warrior/bug_warrior.json",200,1000],
+                         ["/pa/units/land/bug_warrior_big/bug_warrior_big.json",200,100000]
+                         ]
+
+                }
+            },
+            {
+                
+                "waveChance":0.4,
+
+                "runners":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/land/bug_runner/runner.json",20,50000000]
+                      
+                         ]
+
+                }
+            }
+
+        ],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "spawn_waves_2",
+            "id":2,
+            "visible":false,
+            "description": "Spawns waves of bugs periodically.",
+            "playerType":"ai",
+            "spawnEffect":"pingRed",
+            "spawnEffectDuration":3,
+            "effectContext":"groups",
+            "show_area":false,
+            "type":"spawn_waves",
+            "group":false,
+            "planet":0,
+            "dont_spawn_near_unit_type":"UNITTYPE_Shield",
+            "dont_spawn_radius":250,
+            "spawn_near_unit_types":[],
+            "accelerate_by_dont_spawn_type":true,
+            "accelerate_value":0.1,
+            "spawn_near_radius":300,
+            "lastCalled":0,
+            "timesCalled":0,
+            "progress":-4,
+            "maxDifficulty":100000,
+            "spawn_close_radius":500,
+            "scalingNumber":0.3,
+            "scalingRatio":0.1,
+            "waveInterval":40,
+      
+            "unitValues":[{
+
+                "waveChance":1.0,
+                "spitters":{
+                    "value":3,
+                    "units":[
+                        ["/pa/units/land/bug_scout/bug_scout.json",1,40],
+                        ["/pa/units/land/bug_scorcher/bug_scorcher.json",80,400],
+                        ["/pa/units/land/bug_basilisk/bug_basilisk.json",500,300000]
+                    ]
+                },
+                "melee":{
+                    "value":3,
+                    "units":[
+                         ["/pa/units/land/bug_grunt/bug_grunt.json",1,25],
+                         ["/pa/units/land/bug_grunt_big/bug_grunt_big.json",20,400]
+                         ]
+
+                },
+                "warrior":{
+                    "value":2,
+                    "units":[
+                         ["/pa/units/land/bug_warrior/bug_warrior.json",50,500],
+                         ["/pa/units/land/bug_warrior_big/bug_warrior_big.json",300,100000]
+                         ]
+                }
+               
+
+            }],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "kill_counter_1",
+            "id":3,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Get rewarded with a kaiju for each control tower",
+            "needed":500,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                "reward1"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "kill_counter_2"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+		{
+            "name": "kill_counter_2",
+            "id":4,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Get rewarded with 3 kaiju for each control tower",
+            "needed":6000,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "reward2"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "kill_counter_3"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "kill_counter_3",
+            "id":5,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Survive",
+            "needed":100000,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "setup start zapper",
+            "id":6,
+            "description": "sets up starting zapper",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               "starting zappers","starting units"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    
+      
+    "triggers": [
+ 
+        
+            {
+                "name": "starting zappers",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/zap/bugzapper.json",1]]
+                
+            },
+            {
+                "name": "starting units",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",3],["/pa/units/land/attack_vehicle/attack_vehicle.json",20],["/pa/units/land/energy_plant/energy_plant.json",2]]
+                
+            },
+			{
+                "name": "reward1",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Shield",
+                "newUnitName":[["/pa/units/sea/hover_ship/hover_ship.json",1]]
+                
+            },
+            {
+                "name": "reward2",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Shield",
+                "newUnitName":[["/pa/units/sea/hover_ship/hover_ship.json",3]]
+                
+            }
+        
+    ]
+}

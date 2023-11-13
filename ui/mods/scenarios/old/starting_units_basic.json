@@ -1,0 +1,50 @@
+{
+    "name": "Basic Starting Units",
+    "description": "Each player starts with a very basic set of additional units",
+    "setup":"no setup needed but do not use with shared",
+    "author": "Ferretmaster",
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+      
+        {
+            "name": "setup starting units",
+            "id":6,
+            "description": "sets up starting units",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               "starting units"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    
+      
+    "triggers": [
+ 
+            {
+                "name": "starting units",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",1],["/pa/units/land/attack_vehicle/attack_vehicle.json",5]]
+                
+            }
+		
+    ]
+}

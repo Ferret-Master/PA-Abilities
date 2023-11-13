@@ -1,0 +1,144 @@
+<style>
+  .scenario_picker.bootstrap-select .dropdown-toggle.selectpicker {
+    padding: 8px;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+  
+
+  .section_subheader {
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0px 0px 20px #00b3ff;
+    padding: 8px 0px 0px;
+  }
+
+  #scenarioFilenameWrapper {
+    font-family: 'Droid Sans Mono';
+    font-size: 12px;
+  }
+
+  .rich_text ul,
+  .rich_text ol {
+    margin-left: 20px;
+  }
+
+  .rich_text ul {
+    list-style-type: square;
+  }
+
+  .rich_text li {
+    margin: 0 0 2px;
+  }
+  #scenarioSetup{
+    border-style: solid;
+    border-color:rgb(255, 166, 0);
+  
+    color: rgb(203, 214, 44);
+    border-width: 1px;
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+  #scenarioFilenameWrapper{
+    color:cyan;
+    padding-top: 20px;
+  }
+  .scenario_setup{
+    color: rgb(255, 166, 0);
+  }
+  .scenario_description {
+
+    color: rgb(255, 166, 0);
+    
+  }
+  #scenarioDescription {
+    border-style: solid;
+    border-color:rgb(255, 166, 0);
+    border-width: 1px;
+
+    color:rgb(0, 196, 137);
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+  #scenarioSetupWrapper{
+    padding-right: 20px;
+
+  }
+  #scenarioDescriptionWrapper{
+    padding-right: 20px;
+
+  }
+  #scenarioPickerWrapper{
+    padding-right: 20px;
+
+  }
+  .scenario{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding-right: 20px;
+    font-style: bold;
+  }
+  .scenario_picker{
+    color: rgb(189, 0, 206);
+    border: solid;
+    border-width: 1px;
+    font-size: 16px;
+    padding-right: 20px;
+    padding-top: 5px;
+    border-color: rgb(14, 183, 196);
+  }
+  .scenario_picker[disabled]{
+    color: rgb(189, 0, 206);
+    background-color: black;
+    border: solid;
+    border-width: 1px;
+    font-size: 16px;
+    padding-right: 20px;
+    padding-top: 5px;
+    border-color: rgb(14, 183, 196);
+  }
+  
+
+
+</style>
+
+
+
+<div class="section">
+  <div class="form-group">
+    <div id="scenarioPickerWrapper">
+    <div class="scenario">
+      Scenario
+    </div>
+   
+    <select
+      class="form-control scenario_picker"
+      id="scenario-picker"
+      onchange="model.setScenario(this.value)"
+      data-bind="enable: model.canChangeSettings"
+    >
+    </select>
+  </div>
+   
+    <div id="scenarioDescriptionWrapper">
+      <div class="section_subheader scenario_description">
+        Description
+      </div>
+
+      <div id="scenarioDescription" class="rich_text">
+      </div>
+    </div>
+
+    <div id="scenarioSetupWrapper" data-bind="visible: model.isGameCreator">
+      <div class="section_subheader scenario_setup">
+        Setup Info
+      </div>
+    
+      <div id="scenarioSetup" class="rich_text">
+      </div>
+    
+    </div>
+    <div id="scenarioFilenameWrapper">
+      Loaded: <span id="scenarioFilename"></span>.json
+    </div>
+  </div>
+</div>

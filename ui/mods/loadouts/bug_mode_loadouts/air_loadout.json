@@ -1,0 +1,37 @@
+{
+    "name":"Air",
+    "description":"<center>An air based loadout</center><br><li>non titan air hp doubled <br><li>air fab hp 4x(8x overall) <br><li>Icarus range, vision, and health doubled(quad overall)<br><li>bombers aoe increased 1.5x<br><li>Hornet weapon replaced with missile barrage</li><br><li class = 'negativeChange'>You lose access to advanced bot and vehicles</li>",
+    "locked":["/pa/units/land/vehicle_factory/vehicle_factory.json","/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json"],
+    "image":"air",
+    "replace":[
+        [
+            "/pa/units/air/bomber_heavy/bomber_heavy.json",
+            "/pa/units/air/solar_drone/solar_drone.json",
+            "/pa/units/air/strafer/strafer.json",
+            "/pa/units/air/support_platform/support_platform.json",
+            "/pa/units/air/titan_air/titan_air.json",
+            "/pa/units/air/bomber/bomber.json",
+            "/pa/units/air/bomber_adv/bomber_adv.json",
+            "/pa/units/air/fabrication_aircraft/fabrication_aircraft.json",
+            "/pa/units/air/fabrication_aircraft_adv/fabrication_aircraft_adv.json",
+            "/pa/units/air/fighter/fighter.json",
+            "/pa/units/air/fighter_adv/fighter_adv.json",
+            "/pa/units/air/gunship/gunship.json",
+            "/pa/units/air/transport/transport.json"
+        ],
+        [
+            "/pa/units/loadouts/air/bomber_heavy/bomber_heavy.json",
+            "/pa/units/loadouts/air/solar_drone/solar_drone.json",
+            "/pa/units/loadouts/air/strafer/strafer.json",
+            "/pa/units/loadouts/air/support_platform/support_platform.json",
+            "/pa/units/loadouts/air/titan_air/titan_air.json",
+            "/pa/units/loadouts/air/bomber/bomber.json",
+            "/pa/units/loadouts/air/bomber_adv/bomber_adv.json",
+            "/pa/units/loadouts/air/fabrication_aircraft/fabrication_aircraft.json",
+            "/pa/units/loadouts/air/fabrication_aircraft_adv/fabrication_aircraft_adv.json",
+            "/pa/units/loadouts/air/fighter/fighter.json",
+            "/pa/units/loadouts/air/fighter_adv/fighter_adv.json",
+            "/pa/units/loadouts/air/gunship/gunship.json",
+            "/pa/units/loadouts/air/transport/transport.json"
+            ]]
+}

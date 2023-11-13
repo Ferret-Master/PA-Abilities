@@ -1,0 +1,56 @@
+{
+    "name": "Loadouts Only",
+    "description": "A scenario that allows you to use loadouts without anything else",
+    "setup":"no special setup needed",
+    "style":{"color":"orange"},
+    "aiComRequired":false,
+    "aiCommander":"/pa/units/commanders/scenario_ai_invincible_com/scenario_ai_invincible_com.json",
+    "scenarioID": 2,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "loadout":"bug_base_loadouts",
+    "gameType": "Multiplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "spawn loadout",
+            "id":1,
+            "description": "sets up loadout",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               "loadout"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+ 
+        
+        {
+            "name": "loadout",
+            "id": 2,
+            "delay": 0,
+            "planet":0,
+            "type": "loadout",
+            "special":"unit type",
+            "unitType":"UNITTYPE_Commander"
+         
+            
+        }
+]
+}

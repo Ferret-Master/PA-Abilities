@@ -1,0 +1,50 @@
+{
+    "name": "King of the hill multiplayer test",
+    "description": "A early test of a king of the hill gamemode",
+    "scenarioID": 2,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "setup_area",
+            "id":2,
+            "description": "sets up the king of the hill area",
+            "hidden":true,
+            "type": "timed",
+            "time":5,
+            "startingObjective": true,
+            "successTriggers": [
+                "weather"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+        {
+            
+                "name": "weather",
+                "id": 1,
+                "type":"spawn_effect",
+                "delay": 0,
+                "planet":0,
+                "snap": false,
+                "effectName": "weather",
+                "pos":[0,0,0],
+                "scale":3
+            
+        }
+    ]
+}

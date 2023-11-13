@@ -1,0 +1,482 @@
+{
+    "name": "Bug Waves ffa",
+    "description": "An ffa variation of bug wave defense. You start with units and a control tower(zapper) that prevents bugs from spawning near you. exponentially larger waves of bugs will assault you over time.",
+    "setup":"There needs to be an ai,the last one in the lobby will act as the bugs. this ai needs to have the scenario ai commander(DO NOT SELECT) selected for it. This mode should only be played on single planet maps",
+    "aiComRequired":true,
+    "aiCommander":"/pa/units/commanders/scenario_ai_invincible_com/scenario_ai_invincible_com.json",
+    "scenarioID": 2,
+    "systemName": "Centax-3",
+
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "timed win",
+
+            "id":7,
+
+            "visible":true,
+            "description": "survive for 60 mins",
+            "result":"win the game",
+            "needed":3600,
+            "time":3600,
+            "syntax":"/",
+            "type":"survive_time",
+            "progress":0,
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                "win"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "spawn_waves",
+            "id":1,
+            "visible":false,
+            "description": "Spawns waves of bugs periodically.",
+            "playerType":"ai",
+            "spawnEffect":"pingRed",
+            "spawnEffectDuration":3,
+            "effectContext":"groups",
+            "group":true,
+            "show_area":false,
+            "type":"spawn_waves",
+            "planet":0,
+            "dont_spawn_near_unit_type":"UNITTYPE_Shield",
+            "accelerate_by_dont_spawn_type":true,
+            "accelerate_value":0.05,
+            "dont_spawn_radius":250,
+            "spawn_close_radius":3000,
+            "spawn_near_unit_types":[],
+            "spawn_near_radius":3000,
+            "lastCalled":0,
+            "timesCalled":-60,
+            "progress":-16,
+            "maxDifficulty":100000,
+            "scalingNumber":0.2,
+            "scalingRatio":0.12,
+            "waveInterval":120,
+      
+            "unitValues":[
+
+                
+                {
+                
+                    "waveChance":0.5,
+    
+                    "spitters":{
+                        "value":1,
+                        "units":[
+                            ["/pa/units/bug_land/bug_scout/bug_scout.json",2,40],
+                            ["/pa/units/bug_land/bug_needler/bug_needler.json",5,100],
+                            ["/pa/units/bug_land/bug_scorcher/bug_scorcher.json",80,600],
+                            ["/pa/units/bug_land/bug_basilisk/bug_basilisk.json",300,300000]
+                        
+                        ]
+                    },
+                    "melee":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_land/bug_grunt/bug_grunt.json",2,40],
+                             ["/pa/units/bug_land/bug_grunt_big/bug_grunt_big.json",20,400],
+                             ["/pa/units/bug_land/bug_warrior/bug_warrior.json",60,600]
+                             ]
+    
+                    },
+                    "warrior":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_land/bug_warrior/bug_warrior.json",200,1000],
+                             ["/pa/units/bug_land/bug_warrior_big/bug_warrior_big.json",200,2000],
+                             ["/pa/units/bug_land/bug_titan/bug_titan.json",500,200000]
+                        
+                             ]
+    
+                    }
+                },
+                {
+                    
+                    "waveChance":0.15,
+    
+                    "rippers":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_land/bug_ripper/bug_ripper.json",5,200],
+                             ["/pa/units/bug_land/bug_ripper_stealth/bug_ripper_stealth.json",5,50000000]
+                          
+                             ]
+    
+                    }
+                },
+                {
+                    
+                    "waveChance":0.15,
+    
+                    "boomers":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_land/bug_boomer/bug_boomer.json",10,500],
+                             ["/pa/units/bug_land/bug_boomer_big/bug_boomer_big.json",20,500],
+                             ["/pa/units/bug_land/bug_matriarch/bug_matriarch.json",200,50000000]
+                          
+                             ]
+    
+                    }
+                },
+                {
+                    
+                    "waveChance":0.2,
+    
+                    "air_gunship":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_air/bug_harpy/bug_harpy.json",30,300],
+                             ["/pa/units/bug_air/bug_basilisk/bug_basilisk.json",60,50000000]
+                          
+                             ]
+    
+                    },
+                    "air_fighter":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_air/bug_fighter/bug_fighter.json",20,99999]
+                          
+                             ]
+    
+                    },
+                    "air_bomber":{
+                        "value":1,
+                        "units":[
+                             ["/pa/units/bug_air/bug_bomber/bug_bomber.json",40,50000000]
+                          
+                             ]
+    
+                    }
+                }
+
+        ],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "spawn_waves_2",
+            "id":2,
+            "visible":false,
+            "description": "Spawns waves of bugs periodically.",
+            "playerType":"ai",
+            "spreadGroupSize":4,
+            "spawnEffect":"pingRed",
+            "spawnEffectDuration":3,
+            "effectContext":"groups",
+            "show_area":false,
+            "type":"spawn_waves",
+            "maxTime":2600,
+            "group":false,
+            "planet":0,
+            "dont_spawn_near_unit_type":"UNITTYPE_Shield",
+            "dont_spawn_radius":250,
+            "spawn_near_unit_types":[],
+            "spawn_near_radius":3000,
+            "lastCalled":0,
+            "timesCalled":0,
+            "progress":-4,
+            "spawn_close_radius":3000,
+            "maxDifficulty":100000,
+            "scalingNumber":0.1,
+            "scalingRatio":0.1,
+            "waveInterval":45,
+      
+            "unitValues":[  {
+                
+                "waveChance":0.5,
+
+                "spitters":{
+                    "value":1,
+                    "units":[
+                        ["/pa/units/bug_land/bug_scout/bug_scout.json",2,40],
+                        ["/pa/units/bug_land/bug_needler/bug_needler.json",5,100],
+                        ["/pa/units/bug_land/bug_scorcher/bug_scorcher.json",80,600],
+                        ["/pa/units/bug_land/bug_basilisk/bug_basilisk.json",300,300000]
+                    
+                    ]
+                },
+                "melee":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_land/bug_grunt/bug_grunt.json",2,40],
+                         ["/pa/units/bug_land/bug_grunt_big/bug_grunt_big.json",20,400],
+                         ["/pa/units/bug_land/bug_warrior/bug_warrior.json",60,600]
+                         ]
+
+                },
+                "warrior":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_land/bug_warrior/bug_warrior.json",200,1000],
+                         ["/pa/units/bug_land/bug_warrior_big/bug_warrior_big.json",200,2000],
+                         ["/pa/units/bug_land/bug_titan/bug_titan.json",500,200000]
+                    
+                         ]
+
+                }
+            },
+            {
+                
+                "waveChance":0.15,
+
+                "rippers":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_land/bug_ripper/bug_ripper.json",5,200],
+                         ["/pa/units/bug_land/bug_ripper_stealth/bug_ripper_stealth.json",5,50000000]
+                      
+                         ]
+
+                }
+            },
+            {
+                
+                "waveChance":0.15,
+
+                "boomers":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_land/bug_boomer/bug_boomer.json",10,500],
+                         ["/pa/units/bug_land/bug_boomer_big/bug_boomer_big.json",20,500],
+                         ["/pa/units/bug_land/bug_matriarch/bug_matriarch.json",200,50000000]
+                      
+                         ]
+
+                }
+            },
+            {
+                
+                "waveChance":0.2,
+
+                "air_gunship":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_air/bug_harpy/bug_harpy.json",30,300],
+                         ["/pa/units/bug_air/bug_basilisk/bug_basilisk.json",60,50000000]
+                      
+                         ]
+
+                },
+                "air_fighter":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_air/bug_fighter/bug_fighter.json",20,99999]
+                      
+                         ]
+
+                },
+                "air_bomber":{
+                    "value":1,
+                    "units":[
+                         ["/pa/units/bug_air/bug_bomber/bug_bomber.json",40,50000000]
+                      
+                         ]
+
+                }
+            }],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "kill_counter_1",
+            "id":3,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Get rewarded with a kaiju for each control tower",
+            "needed":500,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                "reward1"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "kill_counter_2"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+		{
+            "name": "kill_counter_2",
+            "id":4,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Get rewarded with 3 kaiju for each control tower",
+            "needed":6000,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "reward2"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "kill_counter_3"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "kill_counter_3",
+            "id":5,
+            "visible":true,
+            "description": "Tons Of Biomass Destroyed",
+            "result":"Survive",
+            "needed":100000,
+            "syntax":"/",
+            "type":"destroyed_metal_counter",
+            "counterValue":100,
+            "progress":0,
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "setup start zapper",
+            "id":6,
+            "description": "sets up starting zapper",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               "starting zappers","starting units"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    
+      
+    "triggers": [
+ 
+        
+            {
+                "name": "starting zappers",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/control_tower/control_tower.json",1]]
+                
+            },
+            {
+                "name": "starting units",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",3],["/pa/units/land/attack_vehicle/attack_vehicle.json",20],["/pa/units/land/energy_plant/energy_plant.json",2]]
+                
+            },
+			{
+                "name": "reward1",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Shield",
+                "newUnitName":[["/pa/units/sea/hover_ship/hover_ship.json",1]]
+                
+            },
+            {
+                "name": "reward2",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Shield",
+                "newUnitName":[["/pa/units/sea/hover_ship/hover_ship.json",3]]
+                
+            },
+            {
+                "name": "win",
+                "id": 4,
+                "delay": 0,
+                "planet":0,
+                "type": "kill_all_invincible_ai"
+               
+            }
+        
+    ]
+}

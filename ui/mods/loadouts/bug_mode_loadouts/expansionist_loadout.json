@@ -1,0 +1,6 @@
+{
+    "name":"Expansionist",
+    "image":"expansionist",
+    "description":"you start with an extra 4 fabs for rapid expansion",
+    "units":[["/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",4]]
+}

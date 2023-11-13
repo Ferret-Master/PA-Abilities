@@ -1,0 +1,89 @@
+<!-- ko ifnot: showSpectatorPanel -->
+<div class="scenario_bar_panel">
+    <div class="scenario_bar_control">
+        <div class="scenario_bar_control_cont">
+            <div class="scenario_info">
+                <div class="bar_fill"></div>
+
+                <div class="scenario_info_cont">
+                    <span id="scenarioName"></span> <span id="scenarioAuthor"></span>
+                </div>
+            </div>
+
+            <div
+                class="list_control_btn"
+                data-bind="click: toggleHideScenarioPanel, css: { div_animated_flash_cyan: model.newInvite }"
+            >
+                <img
+                    data-bind="attr: { src: scenarioPanelToggleImage }"
+                    src="coui://ui/main/shared/img/controls/pin_open.png"
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="scenario_bar" data-bind="attr: { hidden: hideScenarioPanel }">
+        <div class="scenario_bar_cont">
+            <ol id="objectivesList">
+                <li class="objective" style="display: none">
+                    <div class="description_and_progress">
+                        <div class="objective_description"></div>
+
+                        <div class="objective_progress">
+                            <span class="objective_progress__current"></span>
+                            <span class="objective_progress__syntax"></span>
+                            <span class="objective_progress__needed"></span>
+                        </div>
+                    </div>
+
+                    <div class="objective_progress_bar"><div><div></div></div></div>
+
+                    <div class="objective_result_cont">Reward: <span class="objective_result"></span></div>
+                </li>
+
+                <li class="objective" style="display: none">
+                    <div class="description_and_progress">
+                        <div class="objective_description"></div>
+
+                        <div class="objective_progress">
+                            <span class="objective_progress__current"></span>
+                            <span class="objective_progress__syntax"></span>
+                            <span class="objective_progress__needed"></span>
+                        </div>
+                    </div>
+
+                    <div class="objective_progress_bar"><div><div></div></div></div>
+
+                    <div class="objective_result_cont">Reward: <span class="objective_result"></span></div>
+                </li>
+
+                <li class="objective" style="display: none">
+                    <div class="description_and_progress">
+                        <div class="objective_description"></div>
+
+                        <div class="objective_progress">
+                            <span class="objective_progress__current"></span>
+                            <span class="objective_progress__syntax"></span>
+                            <span class="objective_progress__needed"></span>
+                        </div>
+                    </div>
+
+                    <div class="objective_progress_bar"><div><div></div></div></div>
+
+                    <div class="objective_result_cont">Reward: <span class="objective_result"></span></div>
+                </li>
+            </ol>
+
+            <div class=scenario_time>
+                <div>
+                    <span>Game Time:</span> <span class="time" id="landingTime">00:00</span>
+                </div>
+
+                <div>
+                    <span>Wave Countdown:</span> <span class="time" id="waveTime">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

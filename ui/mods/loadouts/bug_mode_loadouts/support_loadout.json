@@ -1,0 +1,25 @@
+{
+    "name": "Support",
+    "image":"support",
+    "description": "<center>A loadout designed around helping your team anywhere on the map</center><br><li>Lobs have massive range and make dox at normal cost<br><li>Heavily Buffed Dox that can also shoot air<br><li>Slammers can teleport <br><li>basic combat fabs can teleport themselves and surrounding t1 bots<br><li>Nuke replaced with cheaper less powerful version, great for killing hordes but does not damage buildings<br><br><li  class = 'negativeChange'>You lose access to t2 vehicles and t2 air</li>",
+    "locked": [
+        "/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json",
+        "/pa/units/air/air_factory_adv/air_factory_adv.json"
+    ],
+    "replace": [
+        [
+            "/pa/units/land/fabrication_bot_combat/fabrication_bot_combat.json",
+            "/pa/units/land/assault_bot/assault_bot.json",
+            "/pa/units/land/artillery_unit_launcher/artillery_unit_launcher.json",
+            "/pa/units/land/assault_bot_adv/assault_bot_adv.json",
+            "/pa/units/land/nuke_launcher/nuke_launcher.json"
+        ],
+        [
+            "/pa/units/loadouts/support/combat_fab/combat_fab.json",
+            "/pa/units/loadouts/support/dox/dox.json",
+            "/pa/units/loadouts/support/lob/lob.json",
+            "/pa/units/loadouts/support/slammer/slammer.json",
+            "/pa/units/loadouts/support/support_nuke_launcher/support_nuke_launcher.json"
+        ]
+    ]
+}

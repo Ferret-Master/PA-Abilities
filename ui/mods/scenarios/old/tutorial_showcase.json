@@ -1,0 +1,336 @@
+{
+    "name": "test Scenario",
+    "description": "a tutorial",
+    "scenarioID": 1,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "gameType": "Singleplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "build_bot_factorys",
+            "id":1,
+            "visible":true,
+            "description": "build five bot factories in the highlighted area",
+            "type": "units_in_area",
+            "effect":"radius_ring",
+            "effectDuration":0,
+            "progress": 0,
+            "needed": 5,
+            "syntax":"/",
+            "result":"spawn rag",
+            "show_area":true,
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        -155,
+                        25,
+                        356
+                    ],
+                    "radius": 240
+                }
+            ],
+            "unitType": [
+                "bot_factory"
+            ],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                "spawn_preset"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "gather_dox_1","gather_dox_2","gather_dox_3"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "gather_dox_1",
+            "id":3,
+            "visible":true,
+            "description": "gather 10 dox in the highlighted area",
+            "type": "units_in_area",
+            "effect":"radius_ring",
+            "effectDuration":0,
+            "progress": 0,
+            "needed": 10,
+            "result":"spawn atlas",
+            "show_area":true,
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        -155,
+                        25,
+                        356
+                    ],
+                    "radius": 240
+                }
+            ],
+            "unitType": [
+                "assault_bot"
+            ],
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "spawn_atlas_1"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "gather_dox_2",
+            "id":4,
+            "visible":true,
+            "description": "gather 20 dox in the highlighted area",
+            "type": "units_in_area",
+            "effect":"radius_ring",
+            "effectDuration":0,
+            "progress": 0,
+            "needed": 20,
+            "result":"spawn atlas",
+            "show_area":true,
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        -155,
+                        25,
+                        356
+                    ],
+                    "radius": 240
+                }
+            ],
+            "unitType": [
+                "assault_bot"
+            ],
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "spawn_atlas_2"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "gather_dox_3",
+            "id":5,
+            "visible":true,
+            "description": "gather 30 dox in the highlighted area",
+            "type": "units_in_area",
+            "effect":"radius_ring",
+            "effectDuration":0,
+            "progress": 0,
+            "needed": 30,
+            "result":"spawn atlas",
+            "show_area":true,
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        -155,
+                        25,
+                        356
+                    ],
+                    "radius": 240
+                }
+            ],
+            "unitType": [
+                "assault_bot"
+            ],
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "spawn_atlas_3"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "timed_objective",
+            "id":2,
+            "description": "does things after a timer started when they are activated",
+            "hidden":true,
+            "type": "timed",
+            "time":12,
+            "startingObjective": true,
+            "successTriggers": [
+                "spawn_preset_2"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+        {
+            "name": "spawn_preset",
+            "id": 1,
+            "playerId": 0,
+            "type": "preset",
+            "location": {},
+            "delay": 3,
+            "prefab": {
+                "planet": 0,
+                "units": [
+                    {
+                        "unitType": "/pa/units/land/titan_structure/titan_structure.json",
+                        "pos": [
+                            27.47,
+                            -429.8651123046875,
+                            -101.718804931640625
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "spawn_preset_2",
+            "id": 2,
+            "playerId": 0,
+            "type": "preset",
+            "game_start":true,
+            "location": {},
+            "delay": 15,
+            "prefab": {
+                "planet": 0,
+                "units": [
+                    {
+                        "unitType": "/pa/units/land/titan_structure/titan_structure.json",
+                        "pos": [
+                            27.47,
+                            -429.8651123046875,
+                            -101.718804931640625
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "spawn_atlas_1",
+            "id": 3,
+            "playerId": 0,
+            "type": "preset",
+            
+            "location": {},
+            "delay": 0,
+            "prefab": {
+                "planet": 0,
+                "units": [
+                    {
+                        "unitType": "/pa/units/land/laser_defense_adv/laser_defense_adv.json",
+                        "pos": [
+                            141.3447265625,
+                            167.2938232421875,
+                            288.9375
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "spawn_atlas_2",
+            "id": 4,
+            "playerId": 0,
+            "type": "preset",
+            
+            "location": {},
+            "delay": 0,
+            "prefab": {
+                "planet": 0,
+                "units": [
+                    {
+                        "unitType": "/pa/units/land/laser_defense_adv/laser_defense_adv.json",
+                        "pos": [
+                            52.885040283203125,
+                            -244.94561767578125,
+                            317.2291259765625
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "spawn_atlas_3",
+            "id": 5,
+            "playerId": 0,
+            "type": "preset",
+            
+            "location": {},
+            "delay": 0,
+            "prefab": {
+                "planet": 0,
+                "units": [
+                    {
+                        "unitType": "/pa/units/land/laser_defense_adv/laser_defense_adv.json",
+                        "pos": [
+                            332.2640075683594,
+                            182.3690643310547,
+                            -146.0221710205078
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "name":"Assault",
+    "image":"assault",
+    "description":"<center>A T1 focused tank loadout</center><br><li>Basic vehicle factory cooldown reduced from 4 → 2 <br><li>T1 combat vehicle speed increased by 2 <br><li>Spinners can target land at 50% damage <br><li>Stryker fire rate doubled <br><li>Inferno range increased 20 → 50 but damage reduced by half </li><li>Drifter attack lands as a spark shot </li><li>Ant damage increased 84 → 100 and health increased 250 → 300 </li><br><li class = 'negativeChange'>T2 factory cost increased by 50%</li><li class = 'negativeChange'>You lose access to advanced bots and air</li>",
+    "locked":["//pa/units/land/bot_factory_adv/bot_factory_adv.json","/pa/units/air/air_factory_adv/air_factory_adv.json"],
+    "replace":[
+        [
+            "/pa/units/land/tank_light_laser/tank_light_laser.json",
+            "/pa/units/land/aa_missile_vehicle/aa_missile_vehicle.json",
+            "/pa/units/land/tank_armor/tank_armor.json",
+            "/pa/units/land/tank_hover/tank_hover.json",
+            "/pa/units/land/attack_vehicle/attack_vehicle.json",
+            "/pa/units/land/tank_armor/tank_armor.json",
+            "/pa/units/land/vehicle_factory/vehicle_factory.json",
+            "/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json"
+        ],
+        [
+            "/pa/units/loadouts/assault/tank_light_laser/tank_light_laser.json",
+            "/pa/units/loadouts/assault/aa_missile_vehicle/aa_missile_vehicle.json",
+            "/pa/units/loadouts/assault/tank_armor/tank_armor.json",
+            "/pa/units/loadouts/assault/tank_hover/tank_hover.json",
+            "/pa/units/loadouts/assault/attack_vehicle/attack_vehicle.json",
+            "/pa/units/loadouts/assault/tank_armor/tank_armor.json",
+            "/pa/units/loadouts/assault/vehicle_factory/vehicle_factory.json",
+            "/pa/units/loadouts/assault/vehicle_factory_adv/vehicle_factory_adv.json"
+            ]]
+
+}

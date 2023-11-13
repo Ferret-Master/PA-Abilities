@@ -1,0 +1,30 @@
+{
+    "name":"The Boom Bots",
+    "image":"boom",
+    "description":"<center>A explosive/aoe focused bot centered loadout </center><br><li>spark damage 160->200 and aoe 10 -> 15 <br><li>grenadier is direct fire and has aoe added <br><li>boom health 10 -> 75 and splash 15 -> 20 but do 50% damage to commanders <br><li>stinger AA damage doubled and aoe 0 -> 5 <br><li>pop dox, when dox die they spawn a high damage homing missile </li><li>gile hit changed to sheller</li><li>slammer fire rate halved but shoots spark shots </li><li>bluehawk attack replaced with missile barrage </li><li>atlas replaced with mini atlas that is cheaper and explodes on death </li><br><li class = 'negativeChange'>Cannot use vehicles</li>",
+    "locked":["/pa/units/land/vehicle_factory_adv/vehicle_factory_adv.json","/pa/units/land/vehicle_factory/vehicle_factory.json"],
+    "replace":[
+        [
+            "/pa/units/land/assault_bot/assault_bot.json",
+            "/pa/units/land/assault_bot_adv/assault_bot_adv.json",
+            "/pa/units/land/bot_aa/bot_aa.json",
+            "/pa/units/land/bot_bomb/bot_bomb.json",
+            "/pa/units/land/bot_grenadier/bot_grenadier.json",
+            "/pa/units/land/bot_sniper/bot_sniper.json",
+            "/pa/units/land/bot_tactical_missile/bot_tactical_missile.json",
+            "/pa/units/land/bot_tesla/bot_tesla.json",
+            "/pa/units/land/titan_bot/titan_bot.json"
+        ],
+        [
+            "/pa/units/loadouts/boom/assault_bot/assault_bot.json",
+            "/pa/units/loadouts/boom/assault_bot_adv/assault_bot_adv.json",
+            "/pa/units/loadouts/boom/bot_aa/bot_aa.json",
+            "/pa/units/loadouts/boom/bot_bomb/bot_bomb.json",
+            "/pa/units/loadouts/boom/bot_grenadier/bot_grenadier.json",
+            "/pa/units/loadouts/boom/bot_sniper/bot_sniper.json",
+            "/pa/units/loadouts/boom/bot_tactical_missile/bot_tactical_missile.json",
+            "/pa/units/loadouts/boom/bot_tesla/bot_tesla.json",
+            "/pa/units/loadouts/boom/titan_bot/titan_bot.json"
+            ]]
+
+}

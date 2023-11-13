@@ -1,0 +1,50 @@
+{
+    "name": "Medium Starting Units",
+    "description": "Each player starts with a medium set of additional units",
+    "setup":"no setup needed but do not use with shared",
+    "author": "Ferretmaster",
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+      
+        {
+            "name": "setup starting units",
+            "id":6,
+            "description": "sets up starting units",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               "starting units"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    
+      
+    "triggers": [
+ 
+            {
+                "name": "starting units",
+                "id": 3,
+                "delay": 0,
+                "planet":0,
+                "type": "build_at_existing_unit",
+                "special":"unit type",
+                "unitType":"UNITTYPE_Commander",
+                "newUnitName":[["/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",2],["/pa/units/land/fabrication_bot/fabrication_bot.json",2],["/pa/units/land/tank_light_laser/tank_light_laser.json",8],["/pa/units/land/aa_missile_vehicle/aa_missile_vehicle.json",1]]
+                
+            }
+		
+    ]
+}

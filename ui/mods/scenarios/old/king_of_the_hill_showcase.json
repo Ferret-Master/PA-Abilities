@@ -1,0 +1,99 @@
+{
+    "name": "King of the hill multiplayer test",
+    "description": "A early test of a king of the hill gamemode",
+    "scenarioID": 2,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "setup":"This is made for TETC's king of the hill/ffa map with a planet called crown of thorns, will not work well on other maps",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "king_of_the_hill",
+            "id":1,
+            "visible":true,
+            "description": "Control the marked area for 5 minutes/300 seconds total to win.",
+            "type": "control_area",
+            "effect":"radius_ring",
+            "effectDuration":0,
+            "progress": [0],
+            "needed": 60,
+            "syntax":"king",
+            "dont_count":2,
+            "result":"win game",
+            "show_area":true,
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        0.19706711173057556,
+                        -1.5809801816940308,
+                        635.1109008789062
+                    ],
+                    "radius": 180
+                }
+            ],
+            "startingObjective": true,
+            "finishDuration": null,
+            "successTriggers": [
+                "win_game"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "setup_area",
+            "id":2,
+            "description": "sets up the king of the hill area",
+            "hidden":true,
+            "type": "timed",
+            "time":5,
+            "startingObjective": true,
+            "successTriggers": [
+                "area_vision"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+        {
+            "name": "win_game",
+            "id": 1,
+            "type": "wipe_planet"
+        },
+        {
+            "name": "area_vision",
+            "id": 2,
+            "type": "vision_medium",
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [
+                        0.19706711173057556,
+                        -1.5,
+                        635
+                    ]
+                   
+                }
+            ]
+        }
+    ]
+}

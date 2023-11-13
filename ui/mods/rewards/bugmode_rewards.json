@@ -1,0 +1,92 @@
+{
+"unitValues":[
+
+                
+    {
+    
+        "rewardChance":0.2,
+
+        "bots":{
+            "value":1,
+            "units":[
+                ["/pa/units/bug_land/bug_scout/bug_scout.json",2,40],
+                ["/pa/units/bug_land/bug_needler/bug_needler.json",5,100],
+                ["/pa/units/bug_land/bug_scorcher/bug_scorcher.json",80,600],
+                ["/pa/units/bug_land/bug_basilisk/bug_basilisk.json",300,300000]
+            
+            ]
+        }
+    },
+    {
+        
+        "rewardChance":0.2,
+
+        "vehicles":{
+            "value":1,
+            "units":[
+                 ["/pa/units/bug_land/bug_ripper/bug_ripper.json",5,200],
+                 ["/pa/units/bug_land/bug_ripper_stealth/bug_ripper_stealth.json",5,50000000]
+              
+                 ]
+
+        }
+    },
+    {
+        
+        "rewardChance":0.1,
+
+        "fabs":{
+            "value":1,
+            "units":[
+                 ["/pa/units/bug_land/bug_boomer/bug_boomer.json",10,500],
+                 ["/pa/units/bug_land/bug_boomer_big/bug_boomer_big.json",20,500],
+                 ["/pa/units/bug_land/bug_matriarch/bug_matriarch.json",200,50000000]
+              
+                 ]
+
+        }
+    },
+    {
+        
+        "rewardChance":0.1,
+
+        "air":{
+            "value":1,
+            "units":[
+                 ["/pa/units/bug_air/bug_harpy/bug_harpy.json",30,300],
+                 ["/pa/units/bug_air/bug_basilisk/bug_basilisk.json",60,50000000]
+              
+                 ]
+
+        }
+    },
+    {
+        
+        "rewardChance":0.2,
+
+        "eco":{
+            "value":1,
+            "units":[
+                 ["/pa/units/bug_air/bug_harpy/bug_harpy.json",30,300],
+                 ["/pa/units/bug_air/bug_basilisk/bug_basilisk.json",60,50000000]
+              
+                 ]
+
+        }
+    },
+    {
+        
+        "rewardChance":0.2,
+
+        "hover":{
+            "value":1,
+            "units":[
+                 ["/pa/units/bug_air/bug_harpy/bug_harpy.json",30,300],
+                 ["/pa/units/bug_air/bug_basilisk/bug_basilisk.json",60,50000000]
+              
+                 ]
+
+        }
+    }
+]
+}

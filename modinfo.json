@@ -1,0 +1,68 @@
+ {
+
+   "context": "server",
+   "identifier": "com.pa.ferretmaster.abilities",
+   "display_name": "Pa Heroes",
+   "description": "Adds Heroes with abilities to pa, intended to be played in a custom mode/map",
+   "author": "ferretmaster",
+   "version": "1.07",
+   "build": "115626",
+   "date": "2021-10-12",
+   "signature": "not yet implemented",
+   "forum": "https://forums.planetaryannihilation.com/threads/server-scenarios.73550/",
+   "priority": 100,
+   "icon": "https://github.com/Ferret-Master/Scenarios/blob/release/hero_image.png?raw=true",
+   "scenes": {
+    "live_game_build_bar":[
+      "coui://ui/mods/scenario-research/live_build_bar.js"
+    ],
+    "live_game": [
+
+            "coui://ui/mods/scenario-research/research_live_game.js",
+            "coui://ui/mods/scenario-core/objective_functions.js",
+            "coui://ui/mods/scenario-core/objective_live_game.js",
+            "coui://ui/mods/custom-api/build_preset.js",
+            "coui://ui/mods/custom-api/puppet_api.js",
+            "coui://ui/mods/custom-api/control_units.js",
+            "coui://ui/mods/scenario-core/load_scenario.js",
+            "coui://ui/mods/scenario-core/utility_functions.js",
+            "coui://ui/mods/scenario-core/scenario_live_game.js",
+            "coui://ui/mods/scenario-core/trigger_functions.js",
+            "coui://ui/mods/scenario-core/triggers_live_game.js",
+            "coui://ui/mods/scenario-core/handlers_live_game.js",
+            "coui://ui/mods/scenario-bugmode/bugmode-functions.js",
+            "coui://ui/mods/scenario-bugmode/bugmode-wars.js",
+            "coui://ui/mods/scenario-bugmode/bugmode-standard.js",
+            "coui://ui/mods/scenario-overhaul/bugmode-overhaul.js",
+            "coui://ui/mods/scenario-overhaul/bugmode-events.js"
+        ],
+      "live_game_players": [
+        "coui://ui/mods/scenario-ui/objective_ui_live_game.css",
+        "coui://ui/mods/scenario-ui/objective_ui_live_game.js"
+      ],
+      "live_game_chat":[
+        "coui://ui/mods/scenario-chat/live_game_chat.js"
+      ],
+      "global_mod_list": [
+        "coui://ui/mods/scenario-core/global.js"
+      ],
+     "live_game_time_bar":[
+
+      "coui://ui/mods/scenario-core/time_since_landing.js",
+      "coui://ui/mods/scenario-ui/scenario_time_bar.js"
+
+     ],
+     
+     "new_game":[
+      "coui://ui/mods/scenario_lobby/scenario_lobby.js"
+     ]
+    },
+    "companions":[
+      "com.pa.raevn.rfloatframe"
+    ],
+    "dependencies": [
+      "com.pa.ferretmaster.scenario-server-hive"
+    ],
+
+   "category": ["ui","titans", "in-game","server"]
+ }

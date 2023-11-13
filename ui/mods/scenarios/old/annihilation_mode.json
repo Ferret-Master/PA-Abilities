@@ -1,0 +1,127 @@
+{
+    "name": "Anhilation Gamemode Test",
+    "description": "A early test of a the anhilation gamemode without loaders",
+    "setup":"Every player must reselect their commander after this is loaded at least once, the host can confirm everyone has picked it, it should look like the aeson commander",
+    "scenarioID": 3,
+    "systemName": "Centax-3",
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "customCommander":"/pa/units/commanders/scenario_invincible_com/scenario_invincible_com.json",
+    "requireSandbox":true,
+    "annihilation":true,
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "Anhilation",
+            "id":1,
+            "visible":true,
+            "description": "destroy all of a players factorys/fabricators.",
+            "type": "unit_range",
+            
+            "delay":5,
+          
+            "range_lower": 1,
+            "range_higher": 10000,
+            "range_type":"outside",
+            "unit_types":"UNITTYPE_Mobile",
+            "units":"",
+            "result":"that player will lose",
+           
+         
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                "kill_player_delayed"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "setup game",
+            "id":3,
+            "description": "sets up game",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+        
+               
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "spawn real com"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "spawn real com",
+            "id":4,
+            "description": "spawns the players commander",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "delay": 0,
+            "delay_type":"spawn",
+            "startingObjective": false,
+            "successTriggers": [
+        
+                "spawn_replacement","disable_select"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "Anhilation"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+       
+        {
+            "name": "spawn_replacement",
+            "id": 3,
+            "delay": 0,
+          
+            "type": "build_at_existing_unit",
+            "special":"playerCom"
+            
+        },
+        {
+            "name": "disable_select",
+            "id": 5,
+            "delay": 0,
+          
+            "type": "prevent_unit_selection",
+            "unitJSON":"/pa/units/commanders/scenario_invincible_com/scenario_invincible_com.json"
+            
+        },
+        {
+            "name": "kill_player_delayed",
+            "id": 4,
+            "delay": 0,
+            "type": "destroy_unit",
+            "amount": "commander"
+            
+            
+        }
+        
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "loadouts":[
+       "bug_mode_loadouts/defender_loadout",
+       "bug_mode_loadouts/economist_loadout",
+       "bug_mode_loadouts/boom_loadout",
+       "bug_mode_loadouts/air_loadout",
+       "bug_mode_loadouts/support_loadout",
+       "bug_mode_loadouts/assault_loadout"
+    ],
+    "default":"bug_mode_loadouts/economist_loadout"
+   
+}
