@@ -5,77 +5,72 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":4
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":10
             },
-            "elites":{
-
-            }
+            "elites":{}
         },
         {
             "wave":"Wave 2",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":3
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":10,
+                "/pa/units/medieval/infantry/longbow/longbow.json":5
             },
-            "elites":{
-
-            }
+            "elites":{}
         },
         {
             "wave":"Wave 3",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":6
+                "/pa/units/medieval/infantry/shield/shield.json":10
             },
-            "elites":{
-
-            }
+            "elites":{}
         },
         {
             "wave":"Wave 4",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":3,
-                "/pa/units/minions/basic_melee/basic_melee.json":4
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":10,
+                "/pa/units/medieval/infantry/longbow/longbow.json":5,
+                "/pa/units/medieval/infantry/shield/shield.json":5
             },
-            "elites":{
-
-            }
+            "elites":{}
         },
         {
             "wave":"Wave 5",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":5
+                "/pa/units/medieval/infantry/longbow/longbow.json":10
             },
             "elites":{
-                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":1
+                "/pa/units/medieval/cavalry/jumping_spider/jumping_spider.json":1
             }
         },
+
         {
             "wave":"Wave 6",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":10
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":12,
+                "/pa/units/medieval/infantry/longbow/longbow.json":8
             },
-            "elites":{
-
-            }
+            "elites":{}
         },
         {
             "wave":"Wave 7",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/shield/shield.json":10,
+                "/pa/units/medieval/infantry/crossbow/crossbow.json":6
             },
             "elites":{
-
+                "/pa/units/medieval/cavalry/spider/spider.json":2
             }
         },
         {
@@ -83,10 +78,12 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":15
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":14,
+                "/pa/units/medieval/infantry/longbow/longbow.json":10,
+                "/pa/units/medieval/infantry/shield/shield.json":6
             },
             "elites":{
-
+                "/pa/units/medieval/cavalry/spider/spider.json":3
             }
         },
         {
@@ -94,11 +91,11 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":10,
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/shield/shield.json":12,
+                "/pa/units/medieval/infantry/crossbow/crossbow.json":10
             },
             "elites":{
-
+                "/pa/units/medieval/cavalry/jumping_spider/jumping_spider.json":2
             }
         },
         {
@@ -106,11 +103,11 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":16,
+                "/pa/units/medieval/infantry/longbow/longbow.json":12
             },
             "elites":{
-                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":3,
-                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":2
+                "/pa/units/medieval/infantry/guardian/guardian.json":4
             }
         },
         {
@@ -118,10 +115,12 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/shield/shield.json":14,
+                "/pa/units/medieval/infantry/crossbow/crossbow.json":12
             },
             "elites":{
-                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":5
+                "/pa/units/medieval/infantry/guardian/guardian.json":6,
+                "/pa/units/medieval/cavalry/spider/spider.json":4
             }
         },
         {
@@ -129,10 +128,12 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":20
+                "/pa/units/medieval/infantry/sword_light/sword_light.json":20,
+                "/pa/units/medieval/infantry/longbow/longbow.json":14,
+                "/pa/units/medieval/infantry/shield/shield.json":10
             },
             "elites":{
-                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":8
+                "/pa/units/medieval/cavalry/jumping_spider/jumping_spider.json":5
             }
         },
         {
@@ -140,11 +141,11 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_ranged/basic_ranged.json":10,
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/guardian/guardian.json":10,
+                "/pa/units/medieval/infantry/crossbow/crossbow.json":14
             },
             "elites":{
-                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":6
+                "/pa/units/medieval/cavalry/big_spider/big_spider.json":1
             }
         },
         {
@@ -152,11 +153,13 @@
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
-                "/pa/units/minions/basic_melee/basic_melee.json":10
+                "/pa/units/medieval/infantry/shield/shield.json":16,
+                "/pa/units/medieval/infantry/guardian/guardian.json":12,
+                "/pa/units/medieval/infantry/longbow/longbow.json":16
             },
             "elites":{
-                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":5,
-                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":3
+                "/pa/units/medieval/cavalry/big_spider/big_spider.json":1,
+                "/pa/units/medieval/cavalry/goliath/goliath.json":1
             }
         }
     ]
