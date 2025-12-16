@@ -1,0 +1,7 @@
+{
+    "name":"Paladin",
+    "description":"<center>A close range melee fighter with mid range support options</center>",
+    "abilities":["shockwave","healing circle","summon_angel"],
+    "image":"paladin",
+    "heroSpec":"/pa/units/heroes/paladin/paladin.json"
+}

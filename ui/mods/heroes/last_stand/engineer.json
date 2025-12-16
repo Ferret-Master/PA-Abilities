@@ -1,0 +1,7 @@
+{
+    "name":"Engineer",
+    "description":"<center>A squishy hero based around building/upgrading defenses</center>",
+    "abilities":["missile barrage","pop turret","create wall","upgradeable turret"],
+    "image":"engineer",
+    "heroSpec":"/pa/units/heroes/engineer/engineer.json"
+}

@@ -115,11 +115,8 @@ model.triggerFunctions["build_at_existing_unit"] = function(triggerObject){
            if(model.playerName() !== players[i].slots[0]){return}
         } 
     }
-
-
-    var avatarId = model.scenarioModel["avatarId"];
  
-    if(avatarId == undefined || avatarId == -1){_.delay(model.triggerFunctions["build_at_existing_unit"],100,triggerObject);return}
+    //if(avatarId == undefined || avatarId == -1){_.delay(model.triggerFunctions["build_at_existing_unit"],100,triggerObject);return}
     if(triggerObject["delay"]>0){var newTriggerObject = triggerObject;newTriggerObject.delay = 0 ;_.delay(model.triggerFunctions["build_at_existing_unit"],(triggerObject["delay"]*1000),newTriggerObject);return}
     playerIndex = model.armyIndex();
     var buildLocation;
@@ -132,16 +129,11 @@ model.triggerFunctions["build_at_existing_unit"] = function(triggerObject){
          console.log(model.scenarioModel.playerSpawn.chosenPlanet)
         if(model.scenarioModel.playerSpawn.chosenPos == undefined || model.scenarioModel.playerSpawn.chosenPlanet === undefined){_.delay(model.triggerFunctions["build_at_existing_unit"],100,triggerObject);return}
         if(model.scenarioModel.playerCommanderType == -1){model.scenarioModel.playerCommanderType = "/pa/units/commanders/raptor_rallus/raptor_rallus.json";}
-        triggerObject.prefab.units = [{"unitType":model.scenarioModel.playerCommanderType,"pos":model.scenarioModel.playerSpawn.chosenPos,"orientation": model.scenarioModel.playerSpawn.chosenOrientation}]
-        triggerObject.prefab.planet = model.scenarioModel.playerSpawn.chosenPlanet
 
-        console.log("sending build order ")
-    console.log(triggerObject)
-    var preset = triggerObject.prefab;
-    console.log(preset)
-    console.log(avatarId)
-    model.executeAsPlayer(playerIndex,api.build_preset.exactPreFabUnit,[avatarId[0],preset])
-        
+    var unitToReplaceCom = model.scenarioModel.playerCommanderType;
+    if(triggerObject.hero == true){unitToReplaceCom = localStorage.chosenHero}    
+    console.log("spawn exact ran")
+    model.spawnExact(playerIndex,unitToReplaceCom,model.scenarioModel.playerSpawn.chosenPlanet,model.scenarioModel.playerSpawn.chosenPos,[0,0,0])
      
     }
     else if(triggerObject.special == "unit type"){// TODO expand for general use
@@ -289,44 +281,43 @@ model.triggerFunctions["wipe_planet"] = function(triggerObject){//spawns a unit 
 //spawning vision is similar to prefabs but does not have to be as exact or include the unit name, I should probably return the id of the vision for later removal if needed
 //vision will have duration and three size presets(for now)
 
-model.triggerFunctions["vision_medium"] = function(triggerObject){ 
+model.triggerFunctions["vision_medium"] = function(triggerObject){ //for now spawns at set location because idk why it is broken
   
 
-    //will return id's later but need a way to track specific unit id's in game to destroy etc if the duration is forever. e.g vision dissapears after an objective is completed, but only one set.
-    //assignjing name/id to each vision trigger to a new thing in objective model could work. then can delete them with triggers given their name/id
-    var avatarId = model.scenarioModel["avatarId"];
- 
-    if(avatarId == undefined || avatarId == -1){_.delay(model.triggerFunctions["vision_medium"],1000,triggerObject);return}
     if(triggerObject["delay"]>0){var newTriggerObject = triggerObject;newTriggerObject.delay = 0 ;_.delay(model.triggerFunctions["preset_unit"],(triggerObject["delay"]*1000),triggerObject)}
     playerIndex = model.armyIndex();
 
     var locations = triggerObject.location;
-    console.log("locations: "+locations)
+    console.log("locations: "+locations.length)
     console.log(playerIndex)
     console.log("running vision medium")
     for(var i = 0;i<locations.length;i++){
         var location = locations[i];
-        var preset = {
-
-            planet:location.planet,
-            units:[
-                {
-                    unitType:"/pa/units/orbital/vision_two/vision_two.json",
-                    pos: location.pos,
-                    orientation:[0,0,0]
-                }
-            ]
-
-
-
-
-        }
-        model.executeAsPlayer(playerIndex,api.build_preset.exactPreFabUnit,[avatarId[0],preset])
+        model.spawnExact(0,"/pa/units/orbital/vision_two/vision_two.json",model.scenarioModel.playerSpawn.chosenPlanet,model.scenarioModel.playerSpawn.chosenPos,[0,0,0],true)
     }
     return;
 
 }
 
+model.triggerFunctions["global_regen"] = function(triggerObject){ //for now spawns at set location because idk why it is broken
+  
+
+    if(triggerObject["delay"]>0){var newTriggerObject = triggerObject;newTriggerObject.delay = 0 ;_.delay(model.triggerFunctions["preset_unit"],(triggerObject["delay"]*1000),triggerObject)}
+    playerIndex = model.armyIndex();
+
+    var locations = triggerObject.location;
+    console.log("locations: "+locations.length)
+    console.log(playerIndex)
+    console.log("running vision medium")
+    for(var i = 0;i<locations.length;i++){
+        var location = locations[i];
+        if(model.armyIndex() == 0){
+            model.spawnExact(0,"/pa/units/land/global_heal/global_heal.json",model.scenarioModel.playerSpawn.chosenPlanet,model.scenarioModel.playerSpawn.chosenPos,[0,0,0],true)
+        }
+    }
+    return;
+
+}
 
 model.triggerFunctions["vision_small"] = function(triggerObject){
    

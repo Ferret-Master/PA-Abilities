@@ -24,6 +24,8 @@ model.selectedScenario = ko.observable(-1).extend({ session: 'selectedScenario' 
 
 model.selectedLoadout = ko.observable(-1).extend({ session: 'selectedLoadout' });
 
+model.selectedHero = ko.observable(-1).extend({ session: 'selectedHero' });
+
 // model.selectedScenario(-1);
 // model.selectedLoadout(-1);
 
@@ -293,6 +295,81 @@ var populateLoadouts = function(loadoutName) {
     });
 }
 
+var lastLoadedHero = undefined;
+var heroNameKeyMap = {};
+heroNameKeyMap["none"] = "None"
+var populateHeroes = function(heroesName) {
+    if(heroesName == "clear"){
+        $("#loadout-panel").remove()
+       // model.selectedLoadout("none");
+        lastLoadedHero = undefined;
+        return
+    } 
+    if(lastLoadedHero == heroesName){return}
+    if(heroesName == "" || heroesName == undefined){return}
+    else{lastLoadedHero = heroesName}
+
+    $("#loadout-panel").remove()
+    $(".lobby_table tbody:first tr:first").append(loadHtml("coui://ui/mods/scenario_lobby/scenario_lobby_hero_panel.html"));
+    $.getJSON("coui:/mods/heroes/"+heroesName+".json").then(function(importedHeroList) {
+        var heroListItemIndex = 0;
+        var loadedHeroes = [];
+        $("#loadout-picker")[0] = '<select class="form-control loadout_picker" id="loadout-picker" onchange="model.setHero(this.value)"></select>'
+        var heroSelect = $("#loadout-picker")[0];
+
+       
+        var defaultOrLoaded = importedHeroList.default;
+        if(model.selectedHero() !== -1){defaultOrLoaded = model.selectedHero()}
+   
+        $.each(importedHeroList.heroes, function(i, heroFilename) {
+        
+            $.getJSON('coui:/mods/heroes/' + heroFilename + '.json')
+                .done(function(importedHero) {
+                    if(defaultOrLoaded !== heroFilename){
+                    loadedHeroes.push($("<option>", {
+                        value: heroFilename,
+                        text: importedHero.name || heroFilename
+                    }
+                            )
+                        );
+                    }
+                    else{
+                        loadedHeroes.unshift($("<option>", {
+                            value: heroFilename,
+                            text: importedHero.name || heroFilename
+                        }
+                                )
+                            );
+                    }
+                })
+                .fail(function() {
+                    console.error("Failed to import scenario:", loadoutFilename);
+                })
+                .always(function(importedHero) {
+                    heroNameKeyMap[heroFilename] = importedHero.name;
+                    if (++heroListItemIndex === importedHeroList.heroes.length) {
+
+                        $.each(loadedHeroes, function(loadoutIndex, hero) {
+                          
+                            $(heroSelect).append(hero);
+                        });
+                   
+                        $(heroSelect).append($("<option>", {
+                            value: "none",
+                            text: "None"
+                        }));
+                        heroSelect.dataset.bind = "selectPicker: selectedHero";
+                        ko.applyBindings(model, heroSelect);
+                    }
+                });
+              
+        });
+        
+        _.delay(model.setHero,1000, defaultOrLoaded);
+        
+    });
+}
+
 populateScenarios();
 
 function initialCommanderSet(){
@@ -324,6 +401,20 @@ function setAICommanders(commander){
             }
         }
     }
+
+}
+
+function setSystem(system){
+    $.getJSON(system).then(function(result){
+        if(model.system().name == result.name){return}
+        model.system(result)
+        model.updateSystem(model.system());
+        model.changeSettings();
+        model.requestUpdateCheatConfig();
+    })
+    model.showSystemPicker(false);
+   
+
 
 }
 
@@ -366,6 +457,10 @@ model.setScenario = function(scenarioFilename) {
                 model.annihilationModeShow(true)
             }
 
+            if(importedScenario.systemRequired == true && importedScenario.systemName !== undefined){
+                setSystem(importedScenario.systemName)
+            }
+
             if (importedScenario.customCommander !== undefined) {
                 model.scenarioCommanderSpec = importedScenario.customCommander;
                 _.delay(initialCommanderSet, 1000);
@@ -373,6 +468,9 @@ model.setScenario = function(scenarioFilename) {
    
             if(importedScenario.loadout !== undefined) {
                 populateLoadouts(importedScenario.loadout);
+            }
+            if(importedScenario.heroes !== undefined){
+                populateHeroes(importedScenario.heroes)
             }
             else{
              
@@ -453,6 +551,46 @@ model.setLoadout = function(loadoutFilename){
 }
 }
 
+model.setHero = function(loadoutFilename){
+   
+    if (loadoutFilename == "none") {
+        model.alertChosenHero()
+        $("#loadoutImage").hide();
+        $("#loadoutFilenameWrapper").hide();
+        $("#loadoutSetupWrapper").hide();
+        $("#loadoutDescriptionWrapper").hide();
+    } else {
+        $.getJSON('coui:/mods/heroes/' + loadoutFilename + '.json').then(function(importedloadout) {
+            // Sets all ai's commanders to the selected com upon loadout load if they are not already
+            model.alertChosenHero()
+            localStorage.chosenHero = importedloadout.heroSpec;
+          
+            
+            $("#loadoutFilenameWrapper").show();
+            $("#loadoutFilename").text(loadoutFilename);
+
+          
+
+            if (importedloadout.description !== undefined) {
+                $("#loadoutDescriptionWrapper").show();
+                $("#loadoutDescription").html(importedloadout.description);
+            } else {
+                $("#loadoutDescriptionWrapper").hide();
+                $("#loadoutDescription").html('');
+            }
+            
+            if (importedloadout.image !== undefined) {
+                $("#loadoutImage").show();
+                $("#loadoutImage").html('<img src="coui://ui/mods/heroes/hero_images/'+importedloadout.image+'.png">');
+            } else {
+                $(".loadoutImage").hide();
+                $("#loadout_image").html('');
+            }
+        });
+
+}
+}
+
 //function here to set players com to invincible com if toggle ticked
 
 model.commanderPrep =function(){
@@ -510,6 +648,7 @@ model.updatePlayersScenario = function(){
 }
 
 model.alertChosenLoadout = function(){
+    if(model.selectedLoadout() == -1){return}
     var data  = {};
     data.identifier = scenariosIdentifier;
     data.chosenLoadout = model.selectedLoadout();
@@ -518,7 +657,17 @@ model.alertChosenLoadout = function(){
     model.send_message("json_message", data);
 }
 
+model.alertChosenHero = function(){
+    var data  = {};
+    data.identifier = scenariosIdentifier;
+    data.chosenHero = model.selectedHero();
+    data.playerLobbyName = model.displayName()
+    data.type = "alertHero"
+    model.send_message("json_message", data);
+}
+
 model.playerLoadouts = {};
+model.playerHeroes= {};
 
 model.setPlayerLoadout = function(playerName, loadoutName){
     console.log("setting loadouts with "+playerName+"and "+loadoutName)
@@ -526,6 +675,16 @@ model.setPlayerLoadout = function(playerName, loadoutName){
    
     model.playerLoadouts[playerName] = loadoutName;
     model.populatePlayerLoadouts();
+ 
+}
+
+model.setPlayerHero = function(playerName,heroName){
+    console.log("SET PLAYER HEROES")
+    console.log("setting heroes with "+playerName+"and "+heroName)
+    if(model.playerHeroes[playerName] == heroName){return}
+   
+    model.playerHeroes[playerName] = heroName;
+    model.populatePlayerHeroes();
  
 }
 
@@ -558,6 +717,30 @@ model.populatePlayerLoadouts = function(){
     })
 }
 
+model.populatePlayerHeroes = function(){
+     playersInLobby = [];
+    for(i in model.armies()){
+        for(j in model.armies()[i].slots()){
+    
+           playersInLobby.push(model.armies()[i].slots()[j].playerName())
+    
+        }
+    
+    }
+    $("#playerLoadoutTable")[0].innerHTML = "";
+    var playerLoadouts = model.playerHeroes;
+    if(model.playerLoadouts == undefined){return}
+    var playerKeys = _.keys(playerLoadouts);
+    console.log(playerKeys)
+     $.each(playerKeys, function(playerKey){
+        var chosenLoadout = playerLoadouts[playerKeys[playerKey]];
+        var loadoutName = heroNameKeyMap[chosenLoadout];
+        if(_.contains(playersInLobby, playerKeys[playerKey])){
+            $("#playerLoadoutTable").append('<tr><td class = "playerCellName">'+playerKeys[playerKey]+':</td>><td class = "loadoutCellName">'+loadoutName+'</td></tr>')
+        } 
+    })
+}
+
 var scenarioHandler = function(msg)
 {
     //console.log(msg)
@@ -576,10 +759,14 @@ var scenarioHandler = function(msg)
 
             model.updatePlayersScenario();
             model.alertChosenLoadout();
+            model.alertChosenHero();
 
             break;
         case 'alertLoadout':
             model.setPlayerLoadout(data.playerLobbyName, data.chosenLoadout)
+        break;
+        case 'alertHero':
+            model.setPlayerHero(data.playerLobbyName, data.chosenHero)
         break;
 
 // ignore our own messages
@@ -600,6 +787,9 @@ var scenarioHandler = function(msg)
 // host is sending scenario to players
         case 'alertLoadout':
             model.setPlayerLoadout(data.playerLobbyName, data.chosenLoadout)
+        break;
+        case 'alertHero':
+            model.setPlayerHero(data.playerLobbyName, data.chosenHero)
         break;
         case 'justJoined':
 

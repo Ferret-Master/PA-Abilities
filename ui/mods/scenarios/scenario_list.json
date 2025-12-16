@@ -1,6 +1,7 @@
 {
  "scenarios":[
-	"last_stand"
+	"last_stand",
+	"last_stand_dev"
  ]
 }
 

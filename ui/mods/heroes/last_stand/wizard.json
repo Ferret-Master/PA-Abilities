@@ -1,0 +1,7 @@
+{
+    "name":"Wizard",
+    "description":"<center>A long range magic caster with abilities centered around aoe and high damage</center>",
+    "abilities":["fireball","teleport","lightning storm","seeking blast"],
+    "image":"wizard",
+    "heroSpec":"/pa/units/heroes/wizard/wizard.json"
+}

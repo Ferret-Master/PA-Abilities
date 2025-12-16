@@ -245,8 +245,8 @@ init_build_preset(window.api);
   }
 })
  */
-model.spawnExact = function(army,spec,planet,location,orientation){
-    
+model.spawnExact = function(army,spec,planet,location,orientation, debug){
+    if(debug == true){console.log("spawn exact ran with following values: ", army, " : ",spec, " : ", planet, " : ", location, " : ", orientation)}
     var createJson = {
 
         army: model.players()[army].id,

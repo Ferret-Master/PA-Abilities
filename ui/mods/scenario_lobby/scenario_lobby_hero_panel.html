@@ -1,0 +1,167 @@
+
+
+
+<td class="col_1" id = "loadout-panel" style="position:relative; z-index:1;">
+    <style>
+  
+  
+      .loadout_description {
+    
+        color: rgb(255, 166, 0);
+        
+      }
+      #loadoutDescription{
+        border-style: solid;
+        border-color:rgb(255, 166, 0);
+        border-width: 1px;
+        font-size: 12px;
+        font-weight: bold;
+        color:rgb(0, 245, 171);
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    
+      #loadoutDescriptionWrapper{
+       
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      #scenarioPickerWrapper{
+        padding-right: 20px;
+    
+      }
+      .loadout_title{
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        padding-right: 20px;
+        font-style: bold;
+      }
+      .loadout_selector{
+        border-top: solid;
+        border-color: black;
+        color: rgb(0, 210, 247);
+        font-size: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-style: bold;
+      }
+      .loadout-border{
+        border: solid;
+        border-width: 3px;
+        padding-top: 5px;
+        border-color: rgb(14, 183, 196);
+      }
+      .loadout-panel-border{
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
+      }
+      #loadoutFilenameWrapper{color:cyan; padding-top: 20px;}
+  
+      .negativeChange{
+        font-weight: bold;
+        color:rgb(245, 57, 0);  
+      }
+      .player_loadout_border{
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
+        margin-bottom: 50px;
+        padding-bottom: 100px;
+      }
+  
+      .player-loadout-border{
+        border: solid;
+        border-width: 3px;
+        margin-bottom: 50px;
+        border-color: rgb(14, 183, 196);
+      }
+  
+      .loadoutCellName{
+         padding-left: 5px;
+      }
+      .playerCellName{
+         color:rgb(140, 247, 0)
+      }
+      #playerLoadoutTable{
+         align-content: center;
+         text-align:center; 
+       
+         min-width: 300px;
+      }
+    
+    </style>
+    <div class = "col_1" style = "position:relative">
+    <div class = "loadout-panel-border"style="right 10px; max-height:70%; height: 70%; width: 100%; min-height: 300px; max-width:100%; overflow: auto; display:flex; flex-direction:row;">
+      
+                 <div class = "loadout-border" style="text-align:center; height: 70%; min-height: 300px; min-width: 100%;">
+               
+                    <div class="section loadout">
+                      <div class="form-group">
+                        <div class="loadout_selector">
+                          Hero Selector
+                        </div>
+                    
+                        <select
+                          class="form-control loadout_picker"
+                          id="loadout-picker"
+                          onchange="model.setHero(this.value)"
+                        >
+                        </select>
+  
+                        
+                        <div id="loadoutImage" >
+                          <div class="section_subheader loadout_image">
+                           image goes here
+                          </div>
+                          </div>
+                    
+                      
+                    
+                        <div id="loadoutDescriptionWrapper"> 
+                          <div class="loadout_description">
+                            Description
+                          </div>
+                    
+                          <div id="loadoutDescription" class="rich_text" style = "text-align: left;">
+                          </div>
+                        </div>
+                    
+                        <div id="loadoutFilenameWrapper">
+                          Loaded: <span id="loadoutFilename"></span>
+                        </div>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+     
+  
+                  <div class = "player_loadout_border"style="max-height:300px; height: 30%; width: 100%; min-height: 20%; max-width:100%px; overflow: auto; display:flex; flex-direction:row;">
+      
+                    <div class = "player-loadout-border" style="text-align:center;max-height:300px; height: 30%; min-height: 20%; min-width: 100%;overflow: auto; display:flex; flex-direction:row;">
+                       
+                       
+                       <div class="section loadout">
+                         <div class="form-group">
+                           <div class="loadout_selector">
+                             Player Heroes
+                           </div>
+                       
+                         
+                         
+  
+                           <div id="loadoutPlayers"> 
+                             <div id="loadoutDescription" class="rich_text" style = "text-align: left;">
+                              <table id = "playerLoadoutTable">
+                                   
+                              </table>
+                             </div>
+                           </div>
+                       
+                        
+                           </div>
+                         </div>
+                       </div> 
+                     </div>
+  </td>
+  

@@ -1,0 +1,163 @@
+{
+    "waves":[
+        {
+            "wave":"Wave 1",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":4
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":3
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 3",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":6
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 4",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":3,
+                "/pa/units/minions/basic_melee/basic_melee.json":4
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 5",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":5
+            },
+            "elites":{
+                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":1
+            }
+        },
+        {
+            "wave":"Wave 6",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":10
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 7",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 8",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":15
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 9",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":10,
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 10",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":3,
+                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":2
+            }
+        },
+        {
+            "wave":"Wave 11",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":5
+            }
+        },
+        {
+            "wave":"Wave 12",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":20
+            },
+            "elites":{
+                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":8
+            }
+        },
+        {
+            "wave":"Wave 13",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":10,
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":6
+            }
+        },
+        {
+            "wave":"Wave 14",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_melee/basic_melee.json":10
+            },
+            "elites":{
+                "/pa/units/elites/basic_melee_elite/basic_melee_elite.json":5,
+                "/pa/units/elites/basic_ranged_elite/basic_ranged_elite.json":3
+            }
+        }
+    ]
+}

@@ -44,7 +44,7 @@ model.activateTrigger = function(triggerName){ //this prevents creators breaking
             var delayMilliseconds = triggerObject["delay"]*1000;
             var delay_type = triggerObject["delay_type"] 
             if(delay_type == "spawn" && model.scenarioModel.landTime == 200000){_.delay(model.activateTrigger,100,triggerObject.name); return}
-            console.log(delay_type)
+            // console.log(delay_type)
             console.log(model.scenarioModel.landTime)
             console.log("commander landed so running trigger")
             if(triggerObject.delay !== undefined || triggerObject.delay == 0){_.delay(model.triggerFunctions[triggerObject.type],delayMilliseconds,triggerObject); return}

@@ -1,0 +1,150 @@
+{
+    "name": "Last Stand",
+    "description": "A standalone game mode inspired by dawn of war 2 where each player uses a hero unit to try and survive as much waves as they can",
+    "setup":"There needs to be an AI in the last lobby slot. this AI needs to have the Bug Mode AI Commander selected for it and set to IDLE difficulty. This mode should only be played on single planet maps",
+    "aiComRequired":true,
+    "aiCommander":"/pa/units/commanders/scenario_ai_invincible_com/scenario_ai_invincible_com.json",
+    
+    "scenarioID": 0,
+    "systemName": "coui://ui/mods/scenario.server/systems/last_stand.pas",
+    "systemRequired":true,
+    "author": "Ferretmaster",
+    "gameType": "Multiplayer",
+    "heroes":"last_stand_heroes",
+    "customCommander":"/pa/units/commanders/scenario_invincible_com/scenario_invincible_com.json",
+    "style":{"color":"red"},
+    "playerCount": 3,
+    "aiCount": 2,
+    "winCondition": "Default",
+    "requireSandbox":true,
+    "annihilation":false,
+    "requireBuilders":true,
+    "objectives": [
+        {
+            "name": "Last Stand",
+            "id":1,
+            "planetId":0,
+            "waves":"coui://ui/mods/last_stand_data/last_stand_waves.json",
+            "visible":true,
+            "description": "Survive as many waves as you can.",
+            "type": "last_stand",
+            "playerSpawn":[699.0,-249.0,653.14],
+            "waveSpawns":[
+                [-375.23883056640625,254.93003845214844,-533.3089599609375],
+                [-375.23883056640625,254.93003845214844,533.3089599609375],
+                [-631.5977783203125,236.76153564453125,-196.41445922851562],
+                [-631.5977783203125,236.76153564453125,196.41445922851562],
+                [449.506103515625,480.9202880859375,241.83799743652344],
+                [449.506103515625,449.506103515625,-241.83799743652344]
+            ],
+            "startingObjective": false,
+            "finishDuration": null,
+            "successTriggers": [
+                ""
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                ""
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "setup game",
+            "id":2,
+            "description": "sets up game",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "startingObjective": true,
+            "successTriggers": [
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "spawn hero"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        },
+        {
+            "name": "spawn hero",
+            "id":3,
+            "description": "spawns the players chosen hero",
+            "hidden":true,
+            "type": "timed",
+            "time":0,
+            "delay": 0,
+            "delay_type":"spawn",
+            "startingObjective": false,
+            "successTriggers": [
+        
+                "spawn_replacement","disable_select", "area_vision", "global_regen"
+            ],
+            "failureTriggers": [
+                ""
+            ],
+            "successObjectives": [
+                "Last Stand"
+            ],
+            "failureObjectives": [
+                ""
+            ]
+        }
+    ],
+    "triggers": [
+       
+        {
+            "name": "spawn_replacement",
+            "id": 1,
+            "delay": 0,
+            "type": "build_at_existing_unit",
+            "hero":true,
+            "special":"playerCom"
+        },
+        {
+            "name": "disable_select",
+            "id": 2,
+            "delay": 0,
+          
+            "type": "prevent_unit_selection",
+            "unitJSON":"/pa/units/commanders/scenario_invincible_com/scenario_invincible_com.json"
+            
+        },
+        {
+            "name": "kill_player_delayed",
+            "id": 3,
+            "delay": 0,
+            "type": "destroy_unit",
+            "amount": "commander"       
+        },
+        {
+            "name": "area_vision",
+            "id": 4,
+            "type": "vision_medium",
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [-249.0,-653.14,3.1414]
+                }
+            ]
+        },
+        {
+            "name": "global_regen",
+            "id": 5,
+            "type": "global_regen",
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [-249.0,-653.14,3.1414]
+                }
+            ]
+        }
+        
+    ]
+}
