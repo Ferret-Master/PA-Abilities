@@ -50,6 +50,12 @@ model.abilities = {
             model.spawnExact(model.armyIndex(),"/pa/units/heroes/paladin/angel/angel.json", last_stand.planetId,location,[0,0,0])
             model.drainPower(100, location)
         }
+    },
+    "/pa/units/heroes/abilities/ballista/ballista.json":function(location){
+        if(model.currentEnergy()>40){
+            model.spawnExact(model.armyIndex(),"/pa/units/heroes/abilities/ballista/ballista_unit.json", last_stand.planetId,location,[0,0,0])
+            model.drainPower(40, location)
+        }
     }
 }
 
