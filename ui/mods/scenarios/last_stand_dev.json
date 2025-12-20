@@ -25,8 +25,8 @@
             "id":1,
             "planetId":0,
             "waves":"coui://ui/mods/last_stand_data/last_stand_waves_idle.json",
-            "visible":false,
-            "description": "last stand game mode.",
+            "visible":true,
+            "description": "Survive as many waves as you can.",
             "type": "last_stand",
             "playerSpawn":[699.0,-249.0,653.14],
             "waveSpawns":[
@@ -84,7 +84,7 @@
             "startingObjective": false,
             "successTriggers": [
         
-                "spawn_replacement","disable_select", "area_vision"
+                "spawn_replacement","disable_select", "area_vision", "global_regen"
             ],
             "failureTriggers": [
                 ""
@@ -127,6 +127,17 @@
             "name": "area_vision",
             "id": 4,
             "type": "vision_medium",
+            "location": [
+                {
+                    "planet": 0,
+                    "pos": [-249.0,-653.14,3.1414]
+                }
+            ]
+        },
+        {
+            "name": "global_regen",
+            "id": 5,
+            "type": "global_regen",
             "location": [
                 {
                     "planet": 0,

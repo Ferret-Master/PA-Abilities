@@ -18,3 +18,17 @@ model.drainHealth = function(health, unitId){
 }
 
 
+/**    audio:"/pa/audio/success.wav",
+        image:"coui://ui/mods/scenario-ui/ui-assets/reward_background.png",
+        text:"you have received a reward of "+chosenRewardType+" units!",
+        duration:5
+*/
+model.displayNotification = function(audio,image,text,duration){
+        var rewardNotification = {
+        audio:audio,
+        image:image,
+        text:text,
+        duration:duration
+    }
+    api.Panel.message("LiveGame_FloatZone", 'notification', rewardNotification)
+}

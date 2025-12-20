@@ -14,6 +14,7 @@ var last_stand = {
    planetRadius:undefined,
    planetId:undefined,
    startComplete:false,
+   currentWave: 0,
 
 
 //sets up the map for last stand, given that it is a set map it applies visuals and spawns necessary starting units
@@ -105,7 +106,12 @@ spawnWave:function(waveSpawnPoints,waveObject,waveNumber, totalSpawnNumber){
 },
 checkWaveComplete:function(){//checks if no enemy units exist
     model.playerArmy(last_stand.enemyPlayer,last_stand.planetId,"",true,"UNITTYPE_Custom57").then(function(result){
-        if(result.length < 1){last_stand.waveComplete()}
+        if(result.length < 1){
+            last_stand.waveComplete()
+            
+            //model.displayNotification("/pa/audio/success.wav","coui://ui/mods/scenario-ui/ui-assets/reward_background.png","Wave "+last_stand.currentWave+" Complete", 5)
+           
+        }
     })
 },
 
@@ -172,8 +178,8 @@ handleRevives:function(){
 },
 //model.spawnExact(model.armyIndex(),last_stand.currentHero, last_stand.planetId,last_stand.reviveStatusMap[0].reviveLocation,[0,0,0], true)
 reviveHero:function(location, reviveUnit, healthPercentage){
-    console.log(location, reviveUnit)
-    if(last_stand.currentHero == undefined){last_stand.currentHero = localStorage.chosenHero}
+ 
+
 
     //spawn damage on hero
 
@@ -196,7 +202,12 @@ loseGame:function(){//ends the game and calcs meta stuff if needed
 },
 
 waveComplete:function(){
-    waveCounter = 20;
+    if( last_stand.waveObject != undefined){
+        waveCounter = last_stand.waveObject["timeBetweenWaves"];
+    }
+    else{
+    waveCounter = 20
+    }
     waveComplete = true;
 },
 getEnemyPlayer:function(){
@@ -236,7 +247,7 @@ triggerWin:function(){
 }
 var waveNumber = -1;
 var waveComplete = true;
-var waveCounter = 10;
+var waveCounter = 20;
 var visionSpawned = false;
 var playersWon = false;
 if(localStorage.chosenHero == undefined){localStorage.chosenHero = "/pa/units/heroes/wizard/wizard.json";}
@@ -246,14 +257,19 @@ model.objectiveCheckFunctions["last_stand"] = function (objectiveObject){
     last_stand.waveSpawnPoints = objectiveObject.waveSpawns;
     last_stand.planetId = objectiveObject.planetId;
     if(last_stand.waveObject == undefined){
-        $.getJSON(objectiveObject.waves).then(function(imported) {last_stand.waveObject = imported})
+        $.getJSON(objectiveObject.waves).then(function(imported) {
+            last_stand.waveObject = imported
+            if( last_stand.waveObject != undefined){
+                waveCounter = last_stand.waveObject["timeBetweenWaves"];
+            }
+        })
     }
     if(model.paused() == true || model.isSpectator() == true || model.gameOver() == true || model.scenarioModel.landTime == 200000){return}
     if(model.serverRate() < 0.3){model.triggerFunctions["kill_all_invincible_ai"]({})}//kill switch if server has went to shit, requires ai to use the ai invincible com
     if(model.serverRate() < 0.25){model.triggerFunctions["wipe_planet"]({}) ;return}
     if(model.serverRate() < 0.6){return}//dont try and spawn a wave when the server is already slow
     last_stand.handleRevives();
-    waveCounter -= 1;
+    
 
     if(last_stand.enemyPlayer == undefined){
 
@@ -264,18 +280,23 @@ model.objectiveCheckFunctions["last_stand"] = function (objectiveObject){
         last_stand.getPlanetRadius();
 
     }
-    
+    if(last_stand.currentHero == undefined){last_stand.currentHero = localStorage.chosenHero}
 
     if(waveComplete == false){
         last_stand.checkWaveComplete();
     }
+
+    if(waveComplete){
+        waveCounter -= 1;
+    }
   
     if(waveComplete && waveCounter < 0){//if it is time to spawn a wave
-
+       
         waveNumber += 1;
         if(waveNumber>last_stand.waveObject.waves.length){
             last_stand.triggerWin()
         }
+   
         waveComplete = false;
         //last_stand.spawnWaveEffects(last_stand.waveSpawnPoints);
 
@@ -284,8 +305,9 @@ model.objectiveCheckFunctions["last_stand"] = function (objectiveObject){
         //do wave stuff
 
         last_stand.spawnWave(last_stand.waveSpawnPoints, last_stand.waveObject, waveNumber, model.players().length)
+         last_stand.currentWave +=1
 
-        },5000)
+        },3000)
         
         
         
@@ -301,3 +323,5 @@ model.objectiveCheckFunctions["last_stand"] = function (objectiveObject){
     if(last_stand.gameOver && model.scenarioModel.RealTimeSinceLanding > 100){model.triggerFunctions["kill_all_invincible_ai"]({})}//if all creep and hives have been defeated kill the bug ai
     return 10;//dummy value since progress is not timed based directly
 }   
+
+

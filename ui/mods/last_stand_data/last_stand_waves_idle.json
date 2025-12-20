@@ -1,4 +1,5 @@
 {
+     "timeBetweenWaves":30,
     "waves":[
         {
             "wave":"Wave 1",
@@ -233,6 +234,72 @@
         },
         {
             "wave":"Wave 1",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
+            "audio":"none",
+            "visuals":"none",
+            "unitsPerSpawn":{
+                "/pa/units/minions/basic_ranged/basic_ranged.json":1
+            },
+            "elites":{
+
+            }
+        },
+        {
+            "wave":"Wave 2",
             "audio":"none",
             "visuals":"none",
             "unitsPerSpawn":{
