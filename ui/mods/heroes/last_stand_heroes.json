@@ -1,7 +1,8 @@
 {
     "heroes":[
        "last_stand/wizard",
-       "last_stand/paladin"
+       "last_stand/paladin",
+       "last_stand/engineer"
     ],
     "default":"last_stand/wizard"
 }
